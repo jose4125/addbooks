@@ -3,6 +3,7 @@
   angular.module('app.books').factory('fields', fields);
 
   function fields() {
+    var count = 0;
 
     var formFields = [{
       name: 'bookName',
@@ -32,15 +33,23 @@
       }
     },
     {
-      name: 'new',
+      name: 'newBook',
       params: {
         view: 'input',
         type: 'checkbox'
       }
     }
     ];
-    function getFormFields() {
+    function addId() {
+      _.forEach(formFields, function (field) {
+        field.id = count;
+        console.log(field.id);
+      });
+      console.log(formFields);
       return formFields;
+    }
+    function getFormFields() {
+      return addId();
     }
     return {
       getFormFields: getFormFields
