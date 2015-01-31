@@ -1,0 +1,16 @@
+<h1>Add Books</h1>
+<hr/>
+<form name="addBooks" class="form-inline" novalidate>
+  <div class="form-group" ng-repeat="formFields in vm.addBooks">
+    <span ng-repeat="field in formFields">
+      <label for="{{field.name}}">{{field.name}}</label>
+      <input ng-if="field.params.view == 'input'" type="{{field.params.type}}" class="form-control" name="{{field.name}}" placeholder="{{field.placeholder}}" required="{{field.require}}" ng-model="vm.book[field.name]">
+      <select ng-if="field.params.view == 'select'" name="{{field.name}}"></select>
+    </span>
+    <div>
+      <button class="btn btn-primary" ng-click="addBook()">add book</button>
+      <button class="btn btn-success">send book</button>
+    </div>
+  </div>
+</form>
+{{vm.book}}
