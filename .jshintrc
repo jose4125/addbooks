@@ -74,5 +74,5 @@
     "worker"        : false,    // Web Workers
 
     // Custom Globals
-    "globals"       : {"angular": true, "vm": true}        // additional predefined global variables
+    "globals"       : {"angular": true, "vm": true, "_": true}        // additional predefined global variables
 }

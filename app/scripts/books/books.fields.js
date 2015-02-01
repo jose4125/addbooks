@@ -4,6 +4,7 @@
 
   function fields() {
     var count = 0;
+    var flag = true;
 
     var formFields = [{
       name: 'bookName',
@@ -40,16 +41,25 @@
       }
     }
     ];
-    function addId() {
+    function newFormFields() {
+      var newFields = [];
+      incrementId();
       _.forEach(formFields, function (field) {
-        field.id = count;
-        console.log(field.id);
+        var newField = Object.create(field);
+        newField.id = count;
+        newFields.push(newField);
       });
-      console.log(formFields);
-      return formFields;
+      return newFields;
     }
-    function getFormFields() {
-      return addId();
+    function incrementId() {
+      if (!flag) {
+        count += 1;
+      } else {
+        flag = false;
+      } 
+    }
+    function getFormFields() {      
+      return newFormFields();
     }
     return {
       getFormFields: getFormFields

@@ -20,46 +20,7 @@
 
     function addBook() {
       console.log('addBook');
-      var newField = [{
-        id: 1,
-        name: 'bookName',
-        required: true,
-        params: {
-          view: 'input',
-          type: 'text'
-        }
-      },
-      {
-        id: 1,
-        name: 'author',
-        required: true,
-        params: {
-          view: 'input',
-          type: 'text'
-        }
-      },
-      {
-        id: 1,
-        name: 'year',
-        required: true,
-        params: {
-          view: 'select',
-          options: {
-            start: 1980,
-            end: 2015
-          }
-        }
-      },
-      {
-        id: 1,
-        name: 'newBook',
-        params: {
-          view: 'input',
-          type: 'checkbox'
-        }
-      }];
-      //var newField = fields.getFormFields();
-      console.log(newField);
+      var newField = fields.getFormFields();
 
       vm.form.addFields.push(newField);
       vm.form.books.push(
@@ -71,8 +32,7 @@
       });
     }
     function send() {
-      console.log('send');
-      vm.addBooks.push(vm.book);
+      console.log('send', vm.form.books);
 
     }
   }
