@@ -2,7 +2,7 @@
 (function () {
   angular.module('app.books').controller('HomeCtrl', HomeCtrl);
 
-  function HomeCtrl(fields, storage) {
+  function HomeCtrl(fields, storage, loadBooks) {
     var vm = this;
     vm.book = {
       bookName: '',
@@ -15,7 +15,7 @@
       addFields: [vm.fields],
       books: [vm.book]
     };
-    vm.bookList = storage.getBooksList();
+    vm.bookList = loadBooks || [];
     vm.addBook = addBook;
     vm.send = send;
 

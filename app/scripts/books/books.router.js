@@ -8,7 +8,12 @@
       url: '/',
       templateUrl: 'app/scripts/books/books.view.html',
       controller: 'HomeCtrl',
-      controllerAs: 'vm'
+      controllerAs: 'vm',
+      resolve: {
+        loadBooks: function (storage) {
+          return storage.getBooks();
+        }
+      }
     });
     $urlRouterProvider.otherwise('/');
   }
