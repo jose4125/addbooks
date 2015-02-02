@@ -34,6 +34,14 @@
       }
     },
     {
+      name: 'price',
+      required: true,
+      params: {
+        view: 'input',
+        type: 'text'
+      }
+    },
+    {
       name: 'newBook',
       params: {
         view: 'input',

@@ -3,6 +3,7 @@
   angular.module('addBooks', [
     'ui.router',
     'app.books',
-    'app.shopping'
+    'app.shopping',
+    'app.localStorage'
   ]);
 })();
