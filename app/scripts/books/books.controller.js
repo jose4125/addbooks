@@ -36,7 +36,14 @@
       console.log('send', vm.form.books);
       storage.saveBooks(vm.form.books);
       vm.bookList = storage.getBooksList();
-
+      vm.form.addFields = [vm.fields];
+      vm.form.books.length = 0;
+      vm.form.books[0] = {
+        bookName: '',
+        author: '',
+        year: '',
+        newBook: true 
+      };
     }
   }
 })();

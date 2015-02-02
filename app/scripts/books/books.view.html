@@ -14,10 +14,13 @@
   </div>
 </form>
 <br/><br/><br/>
+{{vm.form.addFields}}
+<br/><br/>
+{{vm.form.books}}
 <h1>Book List</h1>
 <div>
-  <div ng-show="!vm.bookList.length">You dont have books yet, add some one</div>
-  cant: {{vm.bookList.length}}
+  <div class="alert alert-info text-center" ng-show="!vm.bookList.length">You dont have books yet, add some one!</div>
+  <h2 ng-show="vm.bookList.length">Cant: <strong>{{vm.bookList.length}}</strong></h2>
   <div ng-repeat="book in vm.bookList" ng-show="vm.bookList.length">
     {{book.bookName}}
   </div>
