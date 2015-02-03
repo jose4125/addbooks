@@ -20,7 +20,6 @@
     vm.send = send;
 
     function addBook() {
-      console.log('addBook');
       var newField = fields.getFormFields();
 
       vm.form.addFields.push(newField);
