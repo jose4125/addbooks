@@ -4,7 +4,7 @@
 
   function fields() {
     var count = 0,
-        flag = true,
+        //flag = true,
         yearList = [];
 
     var formFields = [{
@@ -29,7 +29,7 @@
       params: {
         view: 'select',
         options: {
-          start: 1980,
+          start: 2005,
           end: 2015
         }
       }
@@ -52,27 +52,30 @@
     ];
     function newFormFields() {
       var newFields = [];
-      incrementId();
+      //incrementId();
       _.forEach(formFields, function (field) {
-        if (field.params.view === 'select') {
-          field.params.yearList = setYearsList(field.params.options.start, field.params.options.end);
-
-        }
         var newField = Object.create(field);
-        newField.id = count;
+        //newField.id = count;
         newFields.push(newField);
       });
       return newFields;
     }
-    function incrementId() {
-      if (!flag) {
-        count += 1;
-      } else {
-        flag = false;
-      }
-    }
+    // function incrementId() {
+    //   if (!flag) {
+    //     count += 1;
+    //   } else {
+    //     flag = false;
+    //   }
+    // }
     function getFormFields() {
       return newFormFields();
+    }
+    function selectField() {
+      _.forEach(formFields, function (field) {
+        if (field.params.view === 'select') {
+          field.params.yearList = setYearsList(field.params.options.start, field.params.options.end);
+        }
+      });
     }
     function setYearsList(start, end) {
       _.each(_.range(start, end), function (year) {
@@ -80,6 +83,7 @@
       });
       return yearList;
     }
+    selectField();
     return {
       getFormFields: getFormFields,
     };
