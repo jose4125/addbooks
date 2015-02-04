@@ -3,8 +3,9 @@
   angular.module('app.books').factory('fields', fields);
 
   function fields() {
-    var count = 0;
-    var flag = true;
+    var count = 0,
+        flag = true,
+        yearList = [];
 
     var formFields = [{
       name: 'bookName',
@@ -53,6 +54,10 @@
       var newFields = [];
       incrementId();
       _.forEach(formFields, function (field) {
+        if (field.params.view === 'select') {
+          field.params.yearList = setYearsList(field.params.options.start, field.params.options.end);
+
+        }
         var newField = Object.create(field);
         newField.id = count;
         newFields.push(newField);
@@ -64,13 +69,19 @@
         count += 1;
       } else {
         flag = false;
-      } 
+      }
     }
-    function getFormFields() {      
+    function getFormFields() {
       return newFormFields();
     }
+    function setYearsList(start, end) {
+      _.each(_.range(start, end), function (year) {
+        yearList.push(year);
+      });
+      return yearList;
+    }
     return {
-      getFormFields: getFormFields
+      getFormFields: getFormFields,
     };
   }
 })();

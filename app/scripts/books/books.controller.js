@@ -8,7 +8,7 @@
       bookName: '',
       author: '',
       year: '',
-      newBook: true 
+      newBook: true
     };
     vm.fields = fields.getFormFields();
     vm.form = {
@@ -16,8 +16,22 @@
       books: [vm.book]
     };
     vm.bookList = loadBooks || [];
+    vm.removeRow = removeRow;
     vm.addBook = addBook;
     vm.send = send;
+    function removeRow(index) {
+      console.log('index', index);
+      vm.form.addFields.splice(index, 1);
+      console.log('fields', vm.form.addFields);
+      _.forEach(vm.form.addFields, function (fields, index) {
+        _.forEach(fields, function (field) {
+          console.log('index', index);
+          field.id = index;
+        });
+      });
+      console.log('fields', vm.form.addFields);
+      vm.form.books.splice(index, 1);
+    }
 
     function addBook() {
       var newField = fields.getFormFields();
@@ -28,7 +42,7 @@
         bookName: '',
         author: '',
         year: '',
-        newBook: true 
+        newBook: true
       });
     }
     function send() {
@@ -41,7 +55,7 @@
         bookName: '',
         author: '',
         year: '',
-        newBook: true 
+        newBook: true
       };
     }
   }

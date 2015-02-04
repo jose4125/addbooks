@@ -3,13 +3,17 @@
 <form name="addBooks" class="form-inline" novalidate>
   <div class="form-group" ng-repeat="formFields in vm.form.addFields track by $index">
     <span ng-repeat="field in formFields">
-      <label for="{{field.name}}">{{field.name}}</label>
+    {{formFields.id}}
+    {{$parent.$index}}
+      <label for="{{field.name}}">{{field.name}} {{field.id}}</label>
       <input ng-if="field.params.view == 'input'" type="{{field.params.type}}" class="form-control" name="{{field.name}}" placeholder="{{field.placeholder}}" required="{{field.require}}" ng-model="vm.form.books[field.id][field.name]">
-      <select ng-if="field.params.view == 'select'" name="{{field.name}}"></select>
+      <select ng-if="field.params.view == 'select'" ng-options="option for option in field.params.yearList" ng-model="vm.form.books[field.id][field.name]"name="{{field.name}}">
+        <option value=''>Choose year</option>
+      </select>
     </span>
     <span ng-if="$index > 0">
       <button class="btn btn-default">Reset</button>
-      <button class="btn btn-danger">Remove</button>
+      <button class="btn btn-danger" ng-click="vm.removeRow($index)">Remove</button>
     </span>
   </div>
   <hr/>
@@ -30,7 +34,7 @@
 <hr/>
 <div>
   <div class="alert alert-info text-center" ng-show="!vm.bookList.length">You dont have books yet, add some one!</div>
-  
+
   <div ng-repeat="book in vm.bookList" ng-show="vm.bookList.length">
     {{book.bookName}}
   </div>
