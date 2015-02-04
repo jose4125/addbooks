@@ -12,15 +12,11 @@
         index: '='
       },
       link: function postLink(scope) {
-        console.log('fields', scope.allFields);
-        console.log('fields', scope.allBooks);
-        //scope.removeRow = removeRow;
-        scope.removeRow = function (idx) {
-          console.log('idx', idx);
+        scope.removeRow = removeRow;
+        function removeRow(idx) {
           scope.allFields.splice(idx, 1);
-          console.log('fields', scope.modelFields);
           scope.allBooks.splice(idx, 1);
-        };
+        }
       }
     };
   }

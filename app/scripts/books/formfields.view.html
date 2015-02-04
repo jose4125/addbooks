@@ -2,7 +2,7 @@
   <span ng-repeat="field in modelFields">
     <label for="{{field.name}}">{{field.name}}</label>
     <input ng-if="field.params.view == 'input'" type="{{field.params.type}}" class="form-control" name="{{field.name}}" placeholder="{{field.placeholder}}" required="{{field.require}}" ng-model="modelBooks[field.name]">
-    <select ng-if="field.params.view == 'select'" ng-options="option for option in field.params.yearList" ng-model="modelBooks[field.name]"name="{{field.name}}">
+    <select ng-if="field.params.view == 'select'" ng-options="option for option in field.params.yearList" ng-model="modelBooks[field.name]" name="{{field.name}}">
       <option value=''>Choose year</option>
     </select>
   </span>
