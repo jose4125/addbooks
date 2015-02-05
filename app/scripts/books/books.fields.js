@@ -1,12 +1,9 @@
 'use strict';
 (function () {
-    angular.module('app.books')
   angular.module('app.books').factory('fields', fields);
 
   function fields() {
-    var count = 0,
-        //flag = true,
-        yearList = [];
+    var yearList = [];
 
     var formFields = [{
       name: 'bookName',
@@ -53,21 +50,12 @@
     ];
     function newFormFields() {
       var newFields = [];
-      //incrementId();
       _.forEach(formFields, function (field) {
         var newField = Object.create(field);
-        //newField.id = count;
         newFields.push(newField);
       });
       return newFields;
     }
-    // function incrementId() {
-    //   if (!flag) {
-    //     count += 1;
-    //   } else {
-    //     flag = false;
-    //   }
-    // }
     function getFormFields() {
       return newFormFields();
     }

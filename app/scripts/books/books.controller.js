@@ -32,7 +32,6 @@
       });
     }
     function send() {
-      console.log('send', vm.form.books);
       storage.saveBooks(vm.form.books);
       vm.bookList = storage.getBooksList();
       vm.form.addFields = [vm.fields];
