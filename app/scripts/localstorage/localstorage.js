@@ -7,7 +7,8 @@
     return {
       getBooksList: getBooksList,
       getBooks: getBooks,
-      saveBooks: saveBooks
+      saveBooks: saveBooks,
+      removeBooks: removeBooks
     };
     function getBooksList() {
       return bookList;
@@ -22,6 +23,11 @@
         bookList.push(book);
       });
       window.localStorage.setItem('books', JSON.stringify(bookList));
+    }
+    function removeBooks(index) {
+      var books = getBooks();
+      books.splice(index, 1);
+      window.localStorage.setItem('books', JSON.stringify(books));
     }
 
   }

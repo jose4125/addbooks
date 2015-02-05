@@ -20,8 +20,6 @@
 <hr/>
 <div>
   <div class="alert alert-info text-center" ng-show="!vm.bookList.length">You dont have books yet, add some one!</div>
-
-  <div ng-repeat="book in vm.bookList" ng-show="vm.bookList.length">
-    {{book.bookName}}
-  </div>
+  <books-list model-books="vm.bookList"></books-list>
+    </tbody>
 </div>

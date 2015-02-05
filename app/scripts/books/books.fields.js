@@ -1,5 +1,6 @@
 'use strict';
 (function () {
+    angular.module('app.books')
   angular.module('app.books').factory('fields', fields);
 
   function fields() {
