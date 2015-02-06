@@ -7,13 +7,26 @@
   </thead>
   <tbody>
     <tr ng-repeat="book in modelBooks">
-      <td ng-repeat="item in fields">
-        <a href="" ng-click="edit()">{{book[item.name]}}</a>
+    <form name="form{{$index}}" ng-model-options="{ updateOn: 'blur' }">
+      <td ng-repeat="field in fields">
+        <!-- <a ng-show="$parent.$index != editingIndex" href="" ng-click="edit($parent.$index)">{{book[field.name]}}</a> -->
+        <a href="" ng-click="edit($parent.$index)">{{book[field.name]}}</a>
+        <div ng-show="$parent.$index == editingIndex">
+          <input ng-if="field.params.view == 'input'" type="{{field.params.type}}" class="form-control" name="{{field.name}}" placeholder="{{field.placeholder}}" required="{{field.require}}" ng-model="book[field.name]" ng-change="change(book)">
+          <select ng-if="field.params.view == 'select'" ng-options="option for option in field.params.yearList" ng-model="book[field.name]" name="{{field.name}}">
+            <option value=''>Choose year</option>
+          </select>
+        </div>
       </td>
       <td>
-        <button class="btn btn-danger btn-sm" ng-click="removeBook($index)">remove</button>
+        <button ng-show="$index != editingIndex"class="btn btn-danger btn-sm" ng-click="removeBook($index)">remove</button>
+        <div ng-show="$index == editingIndex">
+          <!-- <button class="btn btn-success btn-sm" ng-click="removeBook($index)">save</button> -->
+          <button class="btn btn-danger btn-sm" ng-click="">cancel</button>
+        </div>
       </td>
     </tr>
+    </form>
   </tbody>
 
 </table>
