@@ -4,6 +4,7 @@
     'ui.router',
     'app.books',
     'app.shopping',
-    'app.localStorage'
+    'app.localStorage',
+    'app.user'
   ]);
 })();

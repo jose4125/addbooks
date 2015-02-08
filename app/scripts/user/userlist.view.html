@@ -1,0 +1,26 @@
+<table class="table table-striped table-hover table-responsive">
+  <thead>
+    <tr>
+      <th ng-repeat="item in fields">{{item.name}}</th>
+      <th>actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-class="{'success': $index == carAdded}" ng-repeat="book in modelBooks">
+      <td ng-repeat="field in fields">
+        {{$parent.$index}}
+        {{carAdded}}
+        {{$parent.$index == carAdded}}
+        <p ng-show="$parent.$index != editingIndex">{{book[field.name]}}</p>
+      </td>
+      <td>
+        <button ng-show="$index != editingIndex"class="btn btn-danger btn-sm" ng-click="buy($index)">buy</button>
+        <div ng-show="$index == editingIndex">
+          <button class="btn btn-success btn-sm" ng-click="save(book)">save</button>
+          <button class="btn btn-danger btn-sm" ng-click="reset($index)">cancel</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+
+</table>

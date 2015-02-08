@@ -12,7 +12,6 @@
         scope.editingIndex = null;
         scope.editModel = {};
         scope.fields = fields.getFormFields();
-        console.log('fields', scope.fields);
         scope.removeBook = removeBook;
         scope.edit = edit;
         scope.save = save;
@@ -23,7 +22,7 @@
           storage.removeBooks(index);
         }
         function edit(index) {
-          console.log('edit', index);
+          //console.log('edit', index);
           scope.editingIndex = index;
           scope.editModel = angular.copy(scope.modelBooks[index]);
 
@@ -33,8 +32,8 @@
           closeEdit();
         }
         function reset(index) {
-          console.log('reset', index);
-          console.log('reset', scope.editModel);
+          //console.log('reset', index);
+          //console.log('reset', scope.editModel);
           scope.modelBooks[index] = scope.editModel;
           closeEdit();
         }

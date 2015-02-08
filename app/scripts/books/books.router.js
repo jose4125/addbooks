@@ -4,8 +4,8 @@
 
   function booksRouter($stateProvider, $urlRouterProvider) {
     $stateProvider
-    .state('home', {
-      url: '/',
+    .state('addbook', {
+      url: '/books/add',
       templateUrl: 'app/scripts/books/books.view.html',
       controller: 'HomeCtrl',
       controllerAs: 'vm',
