@@ -7,7 +7,12 @@
       url: '/shoppinglist',
       templateUrl: 'app/scripts/shoppinglist/shop.view.html',
       controller: 'ShopCtrl',
-      controllerAs: 'vm'
+      controllerAs: 'vm',
+      resolve: {
+        loadShopping: function (userStorage) {
+          return userStorage.getBooks();
+        }
+      }
     });
     $urlRouterProvider.otherwise('/');
   }
