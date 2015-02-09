@@ -1,4 +1,8 @@
 <h1 class="pull-left">Books List</h1>
-<h3 class="pull-right"><i class="glyphicon glyphicon-shopping-cart"></i> <span class="label label-info">{{vm.cartBooks.length}}</span></h3>
+<h3 class="pull-right">
+  <i class="glyphicon glyphicon-shopping-cart"></i>
+  <span class="label label-info" ng-pluralize count="vm.cartBooks.length" when="{'0': '{{vm.cartBooks.length}} Items', 'one': '{{vm.cartBooks.length}} Item', 'other': ' {{vm.cartBooks.length}} Items'}" offset=""></span>
+  <span> {{vm.totalPrice | currency}}</span>
+</h3>
 <br/>
-<user-books-list model-books="vm.bookList"></user-books-list>
+<user-books-list model-books="vm.bookList" model-car="vm.cartBooks" total-price="vm.totalPrice"></user-books-list>

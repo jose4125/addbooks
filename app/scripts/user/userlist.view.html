@@ -8,10 +8,11 @@
   <tbody>
     <tr ng-class="{'success': book.active}" ng-repeat="book in modelBooks">
       <td ng-repeat="field in fields">
-        <p ng-show="$parent.$index != editingIndex">{{book[field.name]}}</p>
+        <p>{{book[field.name]}}</p>
       </td>
       <td>
-        <button ng-show="$index != editingIndex"class="btn btn-danger btn-sm" ng-click="buy(book)">buy</button>
+        <button ng-show="!book.active"class="btn btn-danger btn-sm" ng-click="buy(book)">buy</button>
+        <button ng-show="book.active"class="btn btn-danger btn-sm" ng-click="remove(book)">remove</button>
         <div ng-show="$index == editingIndex">
           <button class="btn btn-success btn-sm" ng-click="save(book)">save</button>
           <button class="btn btn-danger btn-sm" ng-click="reset($index)">cancel</button>

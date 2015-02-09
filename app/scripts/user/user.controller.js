@@ -5,5 +5,6 @@
     var vm = this;
     vm.bookList = loadBooks || [];
     vm.cartBooks = [];
+    vm.totalPrice = 0;
   }
 })();

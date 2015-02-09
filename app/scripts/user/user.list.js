@@ -6,15 +6,34 @@
       templateUrl: 'app/scripts/user/userlist.view.html',
       replace: true,
       scope: {
-        modelBooks: '='
+        modelBooks: '=',
+        modelCar: '=',
+        totalPrice: '='
       },
       link: function postLink(scope) {
-        console.log('model', scope.modelBooks);
         scope.fields = fields.getFormFields();
         scope.carAdded = null;
         scope.buy = buy;
+        scope.remove = remove;
+        scope.addTotal = addTotal;
+        scope.quitTotal = quitTotal;
+        //scope.total = parseInt(scope.totalPrice, 10);
         function buy(model) {
-          model.active = !model.active;
+          model.active = true;
+          scope.modelCar.push(model);
+          console.log('car', scope.modelCar);
+          scope.addTotal(model);
+        }
+        function remove(model) {
+          model.active = false;
+          scope.modelCar.splice(model, 1);
+          scope.quitTotal(model);
+        }
+        function addTotal(model) {
+          scope.totalPrice += parseInt(model.price, 10);
+        }
+        function quitTotal(model) {
+          scope.totalPrice -= parseInt(model.price, 10);
         }
       }
     };
