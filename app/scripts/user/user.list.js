@@ -9,11 +9,12 @@
         modelBooks: '='
       },
       link: function postLink(scope) {
+        console.log('model', scope.modelBooks);
         scope.fields = fields.getFormFields();
         scope.carAdded = null;
         scope.buy = buy;
-        function buy(index) {
-          scope.carAdded = index;
+        function buy(model) {
+          model.active = !model.active;
         }
       }
     };

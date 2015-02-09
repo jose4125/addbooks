@@ -8,6 +8,7 @@
       bookName: '',
       author: '',
       year: '',
+      active: false,
       newBook: true
     };
     vm.fields = fields.getFormFields();
