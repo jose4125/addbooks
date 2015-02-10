@@ -9,7 +9,7 @@
   <hr/>
   <div>
     <button class="btn btn-default" ng-click="vm.addBook()">add book</button>
-    <button ng-pluralize count="vm.form.books.length" when="{'0': 'send book', 'one': 'send book', 'other': 'send books'}" class="btn btn-success" ng-click="vm.send()"></button>
+    <button ng-pluralize count="vm.form.books.length" when="{'0': 'send book', 'one': 'send book', 'other': 'send books'}" class="btn btn-success" ng-disabled="addBooks.$invalid" ng-click="vm.send()"></button>
   </div>
 </form>
 <br/><br/><br/>

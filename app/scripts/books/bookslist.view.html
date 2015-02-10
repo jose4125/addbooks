@@ -11,6 +11,9 @@
         <a ng-show="$parent.$index != editingIndex" href="" ng-click="edit($parent.$index)">{{book[field.name]}}</a>
         <div ng-show="$parent.$index == editingIndex">
           <input ng-if="field.params.view == 'input'" type="{{field.params.type}}" class="form-control" name="{{field.name}}" placeholder="{{field.placeholder}}" required="{{field.require}}" ng-model="book[field.name]" ng-model-options="{updateOn: 'blur'}">
+          <div ng-messages="addBooks[field.name].$error">
+            <div ng-message="required">the {{field.name}} is required</div>
+          </div>
           <select ng-if="field.params.view == 'select'" ng-options="option for option in field.params.yearList" ng-model="book[field.name]" name="{{field.name}}">
             <option value=''>Choose year</option>
           </select>
