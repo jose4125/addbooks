@@ -8,7 +8,8 @@
       scope: {
         modelBooks: '=',
         modelCar: '=',
-        totalPrice: '='
+        totalPrice: '=',
+        path: '@'
       },
       link: function postLink(scope) {
         scope.fields = fields.getFormFields();

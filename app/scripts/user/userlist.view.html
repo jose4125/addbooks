@@ -6,7 +6,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr ng-class="{'success': book.active}" ng-repeat="book in modelBooks">
+    <tr ng-class="{'success': book.active && path == '/'}" ng-repeat="book in modelBooks">
       <td ng-repeat="field in fields">
         <p>{{book[field.name]}}</p>
       </td>

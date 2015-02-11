@@ -1,10 +1,12 @@
 'use strict';
 (function () {
   angular.module('app.shopping').controller('ShopCtrl', ShopCtrl);
-  function ShopCtrl(loadShopping, total) {
+  function ShopCtrl(loadShopping, total, $location) {
     var vm = this;
     vm.shoppingList = loadShopping || [];
+    console.log('shop', vm.shoppingList);
     vm.totalPrice = total.getTotal();
+    vm.path = $location.path();
     // vm.checkTotal = checkTotal;
 
     // function checkTotal() {

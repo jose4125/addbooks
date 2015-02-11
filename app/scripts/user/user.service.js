@@ -10,7 +10,7 @@
     }
     function checkTotal() {
       if (!shoppingList.length) {
-        vm.totalPrice = 0;
+        totalPrice = 0;
       } else {
         addTotal();
       }
