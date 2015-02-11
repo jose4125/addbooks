@@ -6,6 +6,7 @@
     vm.bookList = loadBooks || [];
     vm.shoppingList = loadShopping || [];
     console.log('shop', vm.shoppingList);
+    vm.checkTotal = total.checkTotal();
     vm.totalPrice = total.getTotal();
     vm.path = $location.path();
   }

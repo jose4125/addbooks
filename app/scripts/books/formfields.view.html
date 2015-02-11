@@ -1,11 +1,14 @@
-<div class="form-group">
-  <span ng-repeat="field in modelFields">
-    <label for="{{field.name}}">{{field.name}}</label>
-    <input ng-if="field.params.view == 'input'" type="{{field.params.type}}" class="form-control" name="{{field.name}}" placeholder="{{field.placeholder}}" required="{{field.require}}" ng-model="modelBooks[field.name]">
-    <select ng-if="field.params.view == 'select'" ng-options="option for option in field.params.yearList" ng-model="modelBooks[field.name]" name="{{field.name}}">
+<div ng-form="addBooks">
+  <div class="form-group" ng-class="{'has-error': addBooks[field.name].$invalid && addBooks[field.name].$dirty}" class="pull-left" ng-repeat="field in modelFields">
+    <label class="control-label" for="{{field.name}}">{{field.name}}</label>
+    <input ng-if="field.params.view == 'input'" type="{{field.params.type}}" class="form-control" name="{{field.name}}" placeholder="{{field.placeholder}}" ng-required="{{field.required}}" ng-model="modelBooksc" ng-pattern="field.pattern">
+    <select ng-if="field.params.view == 'select'" ng-options="option for option in field.params.yearList" ng-model="modelBooks[field.name]" name="{{field.name}}" ng-required="{{field.required}}">
       <option value=''>Choose year</option>
     </select>
-  </span>
+    <div class="help-block has-error" ng-if="addBooks[field.name].$dirty" ng-messages="addBooks[field.name].$error">
+      <span ng-message="{{key}}" ng-repeat="(key, value) in field.messages">{{value}}</span>
+    </div>
+  </div>
   <span ng-if="index > 0">
     <button class="btn btn-default">Reset</button>
     <button class="btn btn-danger" ng-click="removeRow(index)">Remove</button>
