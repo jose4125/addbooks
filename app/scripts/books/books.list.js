@@ -11,6 +11,10 @@
       link: function postLink(scope) {
         scope.editingIndex = null;
         scope.editModel = {};
+        scope.editRows = [];
+        scope.editPrev = null;
+        // scope.originModels = scope.modelBooks;
+        scope.originModels = angular.copy(scope.modelBooks);
         scope.fields = fields.getFormFields();
         scope.removeBook = removeBook;
         scope.edit = edit;
@@ -22,7 +26,14 @@
           storage.removeBooks(index);
         }
         function edit(index) {
-          //console.log('edit', index);
+          scope.editRows.push(index);
+          scope.editPrev = scope.editRows[scope.editRows.length - 2];
+          _.forEach(scope.modelBooks[scope.editPrev], function (value, key, item) {
+            value = (value === null) ? undefined : value;
+            if (value === undefined) {
+              item[key] = scope.originModels[scope.editPrev][key];
+            }
+          });
           scope.editingIndex = index;
           scope.editModel = angular.copy(scope.modelBooks[index]);
 

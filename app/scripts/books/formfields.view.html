@@ -1,11 +1,11 @@
 <div ng-form="addBooks">
-  <div class="form-group" ng-class="{'has-error': addBooks[field.name].$invalid && addBooks[field.name].$dirty}" class="pull-left" ng-repeat="field in modelFields">
+  <div class="form-group" ng-class="{'has-error': addBooks[field.name].$invalid && addBooks[field.name].$touched}" class="pull-left" ng-repeat="field in modelFields">
     <label class="control-label" for="{{field.name}}">{{field.name}}</label>
     <input ng-if="field.params.view == 'input'" type="{{field.params.type}}" class="form-control" name="{{field.name}}" placeholder="{{field.placeholder}}" ng-required="{{field.required}}" ng-model="modelBooksc" ng-pattern="field.pattern">
     <select ng-if="field.params.view == 'select'" ng-options="option for option in field.params.yearList" ng-model="modelBooks[field.name]" name="{{field.name}}" ng-required="{{field.required}}">
       <option value=''>Choose year</option>
     </select>
-    <div class="help-block has-error" ng-if="addBooks[field.name].$dirty" ng-messages="addBooks[field.name].$error">
+    <div class="help-block has-error" ng-if="addBooks[field.name].$touched" ng-messages="addBooks[field.name].$error">
       <span ng-message="{{key}}" ng-repeat="(key, value) in field.messages">{{value}}</span>
     </div>
   </div>

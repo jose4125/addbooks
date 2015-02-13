@@ -10,8 +10,8 @@
       <td ng-repeat="field in fields">
         <a ng-show="$parent.$index != editingIndex" href="" ng-click="edit($parent.$index)">{{book[field.name]}}</a>
         <div ng-show="$parent.$index == editingIndex">
-          <input ng-if="field.params.view == 'input'" type="{{field.params.type}}" class="form-control" name="{{field.name}}" placeholder="{{field.placeholder}}" required="{{field.require}}" ng-model="book[field.name]">
-          <select ng-if="field.params.view == 'select'" ng-options="option for option in field.params.yearList" ng-model="book[field.name]" name="{{field.name}}">
+          <input ng-if="field.params.view == 'input'" type="{{field.params.type}}" class="form-control" name="{{field.name}}" placeholder="{{field.placeholder}}" required="{{field.require}}" ng-model="book[field.name]" ng-pattern="field.pattern">
+          <select ng-if="field.params.view == 'select'" ng-options="option for option in field.params.yearList" ng-model="book[field.name]" name="{{field.name}}" ng-required="{{field.required}}">
             <option value=''>Choose year</option>
           </select>
           <div class="help-block has-error" ng-if="editBook[field.name].$dirty" ng-messages="editBook[field.name].$error">
