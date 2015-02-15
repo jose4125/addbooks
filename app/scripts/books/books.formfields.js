@@ -13,6 +13,12 @@
       },
       link: function postLink(scope) {
         scope.removeRow = removeRow;
+        scope.resetRow = resetRow;
+        function resetRow(model, idx) {
+          _.forEach(model, function (value, key) {
+            model[key] = '';
+          });
+        }
         function removeRow(idx) {
           scope.allFields.splice(idx, 1);
           scope.allBooks.splice(idx, 1);
