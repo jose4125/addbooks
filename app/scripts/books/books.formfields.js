@@ -12,6 +12,7 @@
         index: '='
       },
       link: function postLink(scope) {
+        console.log('modelFields', scope.modelFields);
         scope.removeRow = removeRow;
         scope.resetRow = resetRow;
         function resetRow(model, idx) {
