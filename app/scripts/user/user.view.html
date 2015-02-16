@@ -1,8 +1,11 @@
-<h1 class="pull-left">Books List</h1>
-<h3 class="pull-right">
-  <i class="glyphicon glyphicon-shopping-cart"></i>
-  <span class="label label-info" ng-pluralize count="vm.shoppingList.length" when="{'0': '{{vm.shoppingList.length}} Items', 'one': '{{vm.shoppingList.length}} Item', 'other': ' {{vm.shoppingList.length}} Items'}" offset=""></span>
-  <span> {{vm.totalPrice | currency}}</span>
-</h3>
+<div class="clearfix">
+  <h1 class="pull-left">Books List</h1>
+  <h3 class="pull-right">
+    <i class="glyphicon glyphicon-shopping-cart"></i>
+    <span class="label label-info" ng-pluralize count="vm.shoppingList.length" when="{'0': '{{vm.shoppingList.length}} Items', 'one': '{{vm.shoppingList.length}} Item', 'other': ' {{vm.shoppingList.length}} Items'}" offset=""></span>
+    <span> {{vm.totalPrice | currency}}</span>
+  </h3>
+</div>
 <br/>
-<user-books-list model-books="vm.bookList" model-car="vm.shoppingList" total-price="vm.totalPrice" path="{{vm.path}}"></user-books-list>
+<div class="alert alert-info text-center" ng-show="!vm.bookList.length">You dont have books yet, <a ui-sref="addbook">add some one!</a></div>
+<user-books-list model-books="vm.bookList" model-car="vm.shoppingList" total-price="vm.totalPrice" path="{{vm.path}}" ng-show="vm.bookList.length"></user-books-list>

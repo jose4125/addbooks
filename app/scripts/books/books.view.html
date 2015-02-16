@@ -20,6 +20,6 @@
 <hr/>
 <div>
   <div class="alert alert-info text-center" ng-show="!vm.bookList.length">You dont have books yet, add some one!</div>
-  <books-list model-books="vm.bookList"></books-list>
+  <books-list model-books="vm.bookList" ng-show="vm.bookList.length"></books-list>
     </tbody>
 </div>
