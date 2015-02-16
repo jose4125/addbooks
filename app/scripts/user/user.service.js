@@ -9,7 +9,7 @@
       return totalPrice;
     }
     function checkTotal() {
-      shoppingList = userStorage.getBooks();
+      shoppingList = userStorage.getBooks() || [];
       if (!shoppingList.length) {
         totalPrice = 0;
       } else {
