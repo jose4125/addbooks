@@ -82,11 +82,11 @@
       var userFields = getUserFiedls();
       _.forEach(userFields, function (field) {
         if (field.params.view === 'select') {
-          console.log('field', field.params.options.start, field.params.options.end);
+          // console.log('field', field.params.options.start, field.params.options.end);
           field.params.yearList = setYearsList(field.params.options.start, field.params.options.end);
         }
       });
-      console.log('fields2', userFields);
+      // console.log('fields2', userFields);
       window.localStorage.removeItem('formFields');
       window.localStorage.setItem('formFields', JSON.stringify(userFields));
     }
@@ -94,7 +94,7 @@
       _.each(_.range(start, end), function (year) {
         yearList.push(year);
       });
-      console.log('year list', yearList);
+      // console.log('year list', yearList);
       return yearList;
     }
     selectField();

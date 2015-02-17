@@ -29,8 +29,7 @@
           scope.editRows.push(index);
           scope.editPrev = scope.editRows[scope.editRows.length - 2];
           _.forEach(scope.modelBooks[scope.editPrev], function (value, key, item) {
-            value = (value === null) ? undefined : value;
-            if (value === undefined) {
+            if (!value) {
               item[key] = scope.originModels[scope.editPrev][key];
             }
           });
@@ -39,7 +38,8 @@
 
         }
         function save(model) {
-          console.log('model change', model);
+          // console.log('model change', model, index);
+          storage.updateBook(model);
           closeEdit();
         }
         function reset(index) {

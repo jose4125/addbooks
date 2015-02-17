@@ -8,7 +8,8 @@
       getShoppingList: getShoppingList,
       getBooks: getBooks,
       saveBooks: saveBooks,
-      removeBooks: removeBooks
+      removeBooks: removeBooks,
+      updateBooks: updateBooks
     };
     function getShoppingList() {
       return shoppingList;
@@ -27,6 +28,10 @@
       var books = getBooks();
       books.splice(index, 1);
       console.log('books splice', books);
+      window.localStorage.setItem('shopping', JSON.stringify(books));
+    }
+    function updateBooks(books) {
+      window.localStorage.removeItem('shopping');
       window.localStorage.setItem('shopping', JSON.stringify(books));
     }
 
