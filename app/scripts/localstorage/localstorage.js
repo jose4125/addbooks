@@ -38,6 +38,7 @@
       _.forEach(userBookList, function (book, index) {
         console.log('for');
         if (book.bookName === model.bookName) {
+          model.active = true;
           userBookList.splice(index, 1, model);
           console.log('list', userBookList);
           userStorage.updateBooks(userBookList);

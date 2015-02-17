@@ -9,6 +9,7 @@
         modelBooks: '='
       },
       link: function postLink(scope) {
+        //console.log('models', scope.modelBooks);
         scope.editingIndex = null;
         scope.editModel = {};
         scope.editRows = [];
