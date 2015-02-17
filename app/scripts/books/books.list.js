@@ -29,7 +29,7 @@
           scope.editRows.push(index);
           scope.editPrev = scope.editRows[scope.editRows.length - 2];
           _.forEach(scope.modelBooks[scope.editPrev], function (value, key, item) {
-            if (!value) {
+            if (!value || value !== scope.originModels[scope.editPrev][key]) {
               item[key] = scope.originModels[scope.editPrev][key];
             }
           });
