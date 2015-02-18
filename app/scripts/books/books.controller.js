@@ -9,7 +9,7 @@
       author: '',
       year: '',
       active: false,
-      newBook: true
+      newBook: 'yes'
     };
     vm.fields = fields.getFormFields();
     vm.form = {
@@ -29,7 +29,7 @@
         bookName: '',
         author: '',
         year: '',
-        newBook: true
+        newBook: 'yes'
       });
     }
     function send() {
