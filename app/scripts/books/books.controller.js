@@ -13,8 +13,8 @@
     };
     vm.fields = fields.getFormFields();
     vm.form = {
-      addFields: [vm.fields],
-      books: [vm.book]
+      addFields: [],
+      books: []
     };
     vm.bookList = loadBooks || [];
     vm.addBook = addBook;
@@ -35,14 +35,10 @@
     function send() {
       storage.saveBooks(vm.form.books);
       vm.bookList = storage.getBooksList();
-      vm.form.addFields = [vm.fields];
+      vm.form.addFields.length = 0;
       vm.form.books.length = 0;
-      vm.form.books[0] = {
-        bookName: '',
-        author: '',
-        year: '',
-        newBook: true
-      };
+      addBook();
     }
+    addBook();
   }
 })();
