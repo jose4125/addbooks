@@ -26,10 +26,11 @@
       window.localStorage.setItem('books', JSON.stringify(bookList));
     }
     function updateBook(model) {
+      console.log('model update', model);
       var bookList = getBooksList();
-      updateShoppingList(model);
       window.localStorage.removeItem('books');
       window.localStorage.setItem('books', JSON.stringify(bookList));
+      updateShoppingList(model);
 
     }
     function updateShoppingList(model) {
