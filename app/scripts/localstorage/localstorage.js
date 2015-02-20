@@ -19,8 +19,11 @@
       return bookList;
     }
     function saveBooks(books) {
+      console.log('model_2', books);
       bookList = getBooks() || [];
+      console.log('bookList_2', bookList);
       _.forEach(books, function (book) {
+        console.log('book_2', book);
         bookList.push(book);
       });
       window.localStorage.setItem('books', JSON.stringify(bookList));
