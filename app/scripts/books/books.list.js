@@ -38,9 +38,9 @@
           scope.editModel = angular.copy(scope.modelBooks[index]);
 
         }
-        function save(model) {
+        function save(model, index) {
           // console.log('model change', model, index);
-          storage.updateBook(model);
+          storage.updateBook(model, index);
           closeEdit();
         }
         function reset(index) {

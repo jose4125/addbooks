@@ -28,9 +28,10 @@
       });
       window.localStorage.setItem('books', JSON.stringify(bookList));
     }
-    function updateBook(model) {
-      console.log('model update', model);
+    function updateBook(model, index) {
+      console.log('model update', model, index);
       var bookList = getBooksList();
+      bookList.splice(index, 1, model);
       window.localStorage.removeItem('books');
       window.localStorage.setItem('books', JSON.stringify(bookList));
       updateShoppingList(model);
