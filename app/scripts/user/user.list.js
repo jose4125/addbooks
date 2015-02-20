@@ -22,14 +22,20 @@
         function buy(model) {
           var books = storage.getBooks();
           console.log('books', books);
-          _.forEach(books, function (book, index) {
-            if (_.isEqual(book, model)) {
-              model.active = true;
-              model.buyId = scope.modelCar.length + 1;
-              book.buyId = model.buyId;
-              storage.updateBook(book, index);
-            }
-          });
+          var index = _.findIndex(books, model);
+          var book = _.where(books, model);
+          model.active = true;
+          model.buyId = scope.modelCar.length + 1;
+          book.buyId = model.buyId;
+          storage.updateBook(book, index);
+          // _.forEach(books, function (book, index) {
+          //   if (_.isEqual(book, model)) {
+          //     model.active = true;
+          //     model.buyId = scope.modelCar.length + 1;
+          //     book.buyId = model.buyId;
+          //     storage.updateBook(book, index);
+          //   }
+          // });
           scope.modelCar.push(model);
           console.log('car', scope.modelCar);
           scope.addTotal(model);
