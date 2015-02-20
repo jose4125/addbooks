@@ -42,7 +42,7 @@
       console.log('user', userBookList);
       _.forEach(userBookList, function (book, index) {
         console.log('for');
-        if (book.bookName === model.bookName) {
+        if (book.buyId === model.buyId) {
           model.active = true;
           userBookList.splice(index, 1, model);
           console.log('list', userBookList);

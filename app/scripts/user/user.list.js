@@ -1,7 +1,7 @@
 'use strict';
 (function () {
   angular.module('app.user').directive('userBooksList', userBooksList);
-  function userBooksList(userStorage, fields) {
+  function userBooksList(userStorage, fields, storage) {
     return {
       templateUrl: 'app/scripts/user/userlist.view.html',
       replace: true,
@@ -20,7 +20,16 @@
         scope.quitTotal = quitTotal;
         //scope.total = parseInt(scope.totalPrice, 10);
         function buy(model) {
-          model.active = true;
+          var books = storage.getBooks();
+          console.log('books', books);
+          _.forEach(books, function (book, index) {
+            if (_.isEqual(book, model)) {
+              model.active = true;
+              model.buyId = scope.modelCar.length + 1;
+              book.buyId = model.buyId;
+              storage.updateBook(book, index);
+            }
+          });
           scope.modelCar.push(model);
           console.log('car', scope.modelCar);
           scope.addTotal(model);
