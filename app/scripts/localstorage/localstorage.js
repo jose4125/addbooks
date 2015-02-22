@@ -46,18 +46,16 @@
       userStorage.updateBooks(userBookList);
 
     }
-    function removeShoppingList(deleteBook) {
-      console.log('book delete', deleteBook);
+    function removeShoppingList(index) {
+      console.log('book delete', index);
       var userBookList = userStorage.getBooks();
-      var pos = _.findIndex(userBookList, function (book) {
-        return book.bookName === deleteBook.bookName;
-      });
+      var pos = _.findIndex(userBookList, {buyId: index});
       userBookList.splice(pos, 1);
       userStorage.updateBooks(userBookList);
     }
     function removeBooks(index) {
       var books = getBooks();
-      removeShoppingList(books[index]);
+      removeShoppingList(index);
       books.splice(index, 1);
       window.localStorage.setItem('books', JSON.stringify(books));
     }
