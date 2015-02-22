@@ -6,13 +6,7 @@
       getBook: getBook
     };
     function getBook() {
-      return {
-        bookName: '',
-        author: '',
-        year: '',
-        active: false,
-        newBook: 'yes'
-      };
+      return JSON.parse(window.localStorage.getItem('book'));
     }
   }
 })();

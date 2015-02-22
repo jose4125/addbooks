@@ -18,6 +18,13 @@
     $urlRouterProvider.otherwise('/');
   }
   function runFunction() {
+    var book = {
+      bookName: '',
+      author: '',
+      year: '',
+      active: false,
+      newBook: 'yes'
+    };
     var formFields = [{
       name: 'bookName',
       required: true,
@@ -76,6 +83,7 @@
       }
     }
     ];
+    window.localStorage.setItem('book', JSON.stringify(book));
     window.localStorage.setItem('formFields', JSON.stringify(formFields));
   }
 })();
