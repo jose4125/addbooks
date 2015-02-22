@@ -34,22 +34,17 @@
       bookList.splice(index, 1, model);
       window.localStorage.removeItem('books');
       window.localStorage.setItem('books', JSON.stringify(bookList));
-      updateShoppingList(model);
+      updateShoppingList(model, index);
 
     }
-    function updateShoppingList(model) {
+    function updateShoppingList(model, index) {
       var userBookList = userStorage.getBooks();
       console.log('user', userBookList);
-      _.forEach(userBookList, function (book, index) {
-        console.log('for');
-        if (book.buyId === model.buyId) {
-          model.active = true;
-          userBookList.splice(index, 1, model);
-          console.log('list', userBookList);
-          userStorage.updateBooks(userBookList);
-          return false;
-        }
-      });
+      var bookIndex = _.findIndex(userBookList, {buyId: index});
+      //model.active = true;
+      userBookList[bookIndex] = model;
+      userStorage.updateBooks(userBookList);
+
     }
     function removeShoppingList(deleteBook) {
       console.log('book delete', deleteBook);
