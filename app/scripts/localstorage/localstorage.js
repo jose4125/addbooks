@@ -41,7 +41,8 @@
       var userBookList = userStorage.getBooks();
       console.log('user', userBookList);
       var bookIndex = _.findIndex(userBookList, {buyId: index});
-      //model.active = true;
+      model.active = true;
+      model.buyId = index;
       userBookList[bookIndex] = model;
       userStorage.updateBooks(userBookList);
 
