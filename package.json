@@ -1,0 +1,26 @@
+{
+  "name": "addbooks",
+  "version": "1.0.0",
+  "description": "addbooks angular",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jose4125/addbooks.git"
+  },
+  "author": "jose david lombana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jose4125/addbooks/issues"
+  },
+  "homepage": "https://github.com/jose4125/addbooks",
+  "dependencies": {
+    "express": "^4.12.0",
+    "gulp": "^3.8.11"
+  },
+  "devDependencies": {
+    "connect-livereload": "^0.5.3",
+    "gulp-load-plugins": "^0.8.0"
+  }
+}

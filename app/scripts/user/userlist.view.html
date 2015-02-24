@@ -1,12 +1,12 @@
 <table class="table table-striped table-hover table-responsive">
   <thead>
     <tr>
-      <th ng-repeat="item in fields">{{item.name}}</th>
+      <th ng-repeat="item in fields track by $index">{{item.name}}</th>
       <th>actions</th>
     </tr>
   </thead>
   <tbody>
-    <tr ng-class="{'success': book.active && path == '/'}" ng-repeat="book in modelBooks">
+    <tr ng-class="{'success': book.active && path == '/'}" ng-repeat="book in modelBooks track by $index">
       <td ng-repeat="field in fields">
         <p>{{book[field.name]}}</p>
       </td>

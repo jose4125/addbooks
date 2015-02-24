@@ -22,7 +22,7 @@
       <td>
         <button ng-show="$index != editingIndex"class="btn btn-danger btn-sm" ng-click="removeBook($index)">remove</button>
         <div ng-show="$index == editingIndex">
-          <button class="btn btn-success btn-sm" ng-disabled="editBook.$invalid" ng-click="save(book)">save</button>
+          <button class="btn btn-success btn-sm" ng-disabled="editBook.$invalid" ng-click="save(book, $index)">save</button>
           <button class="btn btn-danger btn-sm" ng-click="reset($index)">cancel</button>
         </div>
       </td>
