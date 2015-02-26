@@ -13,7 +13,7 @@ $ npm install -g bower
 
 Install gulp globaly
 ```sh
-$ npm intall -g gulp
+$ npm install -g gulp
 ```
 
 Clone the repo and then
