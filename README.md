@@ -25,7 +25,7 @@ In this version you can choose which columns of the lists you want the client se
 
 - you can choose in a checklist which column show in the lists
 
-### Setup enviroment
+### Setup environment
 You need to install node and npm
 [node.js]
 
